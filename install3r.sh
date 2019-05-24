@@ -1,7 +1,8 @@
 #!/bin/bash
+echo ""
+echo "Please start this script with an user, not with root! For creating an user you can see the README file on my github repo!"
+echo ""
 echo "Welcome, this is a complete i3 wm installer for ArchLinux! See my github profile: https://github.com/FrancescoXD"
-#Please read this first!
-echo "Before using this script you have to create a new user (Example: useradd -m -G wheel -s /bin/bash USER), now you have to uncomment %wheel on the visudo file"
 #Starting
 echo ""
 echo "Do you want also a display manager? In this script will be installed lightdm (yes/no)"
