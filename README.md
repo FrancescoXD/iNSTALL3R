@@ -1,5 +1,5 @@
 # iNSTALL3R
-An usefull i3wm automatic installer for ArchLinux
+An usefull i3wm automatic installer for ArchLinux.
 
 ## Requirements
 First of all you need to create an user:
