@@ -16,12 +16,12 @@ if [ $installLightdm ]; then
 	echo "This script addons are: rofi, termite, feh, compton and the font-awesome."
 	echo "Start downloading packages..."
 	sudo pacman -Syu
-	sudo pacman -S i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter
+	sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter
 else
 	echo "Installing only i3 without Lightdm..."
 	echo "This script addons are: rofi, termite, feh, compton and the font-awesome."
 	sudo pacman -Syu
-	sudo pacman -S i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome
+	sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome
 fi
 
 #Config files on $HOME/.config/
