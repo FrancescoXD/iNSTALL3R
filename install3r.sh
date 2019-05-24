@@ -1,4 +1,12 @@
 #!/bin/bash
+printf "
+  _ _   _ ____ _____  _    _     _     _____ ____  
+ (_) \ | / ___|_   _|/ \  | |   | |   |___ /|  _ \ 
+ | |  \| \___ \ | | / _ \ | |   | |     |_ \| |_) |
+ | | |\  |___) || |/ ___ \| |___| |___ ___) |  _ < 
+ |_|_| \_|____/ |_/_/   \_\_____|_____|____/|_| \_\
+                                                   
+"
 echo ""
 echo "Please start this script with an user, not with root! For creating an user you can see the README file on my github repo!"
 echo ""
