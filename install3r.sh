@@ -28,7 +28,10 @@ else
 	systemctl enable lightdm
 fi
 
-#Config files on $HOME/.config/
+#Config files on ~/.config/
+echo ""
+echo "####################"
+echo ""
 echo "i3 was successful installed, now do you want default config on ~/.config/? (yes/no)"
 read selectConfig
 
