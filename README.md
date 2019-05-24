@@ -4,7 +4,7 @@ An usefull i3wm automatic installer for ArchLinux.
 ## Requirements
 First of all you need to create an user:
 ```
-user add -m -G wheel -s /bin/bash USER
+useradd -m -G wheel -s /bin/bash USER
 ```
 After you need to modify the ```visudo``` uncommenting ```%wheel```. Now you have to **logout** and enter with the new **user**.
 
