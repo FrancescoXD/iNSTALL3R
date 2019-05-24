@@ -25,7 +25,7 @@ else
 fi
 
 #Config files on $HOME/.config/
-echo "i3 was successful installed, now do you want default config on $HOME/.config/? (yes/no)"
+echo "i3 was successful installed, now do you want default config on ~/.config/? (yes/no)"
 read selectConfig
 
 if [ $selectConfig ]; then
