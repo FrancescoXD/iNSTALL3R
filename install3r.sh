@@ -74,10 +74,10 @@ if [ $EUID != 0 ]; then
 		cp /etc/i3blocks.conf ~/.config/i3blocks/
 		#Copy .wallpapers to ~/.config/
 		cp -r .wallpapers ~/.config/
-	else
-		echo "Thanks for using this script."
 	fi
 
 	#Finally
+	echo ""
+	echo "Thanks for using this script."
 	echo "Finally, you have to reboot."
 fi
