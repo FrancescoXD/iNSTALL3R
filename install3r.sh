@@ -12,7 +12,7 @@ echo "Welcome, this is a complete i3 wm installer for ArchLinux! See my github p
 #Starting
 echo ""
 #If the user who is executing the script is root
-if [ whoami == root ]; then
+if [ $EUID == 0 ]; then
 	echo "You are executing this script with root user, do you need to create an user? (yes/no)"
 	read createUser
 	if [ $createUser ==  yes]; then
