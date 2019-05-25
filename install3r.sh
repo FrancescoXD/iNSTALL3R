@@ -8,10 +8,23 @@ printf "
                                                    
 "
 echo ""
-echo "Please start this script with an user, not with root! For creating an user you can see the README file on my github repo!"
-echo ""
 echo "Welcome, this is a complete i3 wm installer for ArchLinux! See my github profile: https://github.com/FrancescoXD"
 #Starting
+echo ""
+#If the user who is executing the script is root
+if [ whoami == root ]; then
+	echo "You are executing this script with root user, do you need to create an user? (yes/no)"
+	read createUser
+	if [ $createUser ==  yes]; then
+		echo "Insert the name of the user to create:"
+		read $userToCreate
+		#Create User
+		useradd -m -G wheel -s /bin/bash $userToCreate
+		#Modify the visudo
+		sed -i -e 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
+	fi
+fi
+
 echo ""
 echo "Do you want also a display manager? In this script lightdm will be installed (yes/no)"
 
@@ -19,9 +32,9 @@ echo "Do you want also a display manager? In this script lightdm will be install
 read installLightdm
 
 #Start downloading
-if [ $installLightdm ]; then
+if [ $installLightdm == yes ]; then
 	echo "Lightdm selected!"
-	echo "This script addons are: rofi, termite, feh, compton and the font-awesome."
+	echo "This script addons are: rofi, termite, feh, compton and font-awesome."
 	echo "Start downloading packages..."
 	sudo pacman -Syu
 	sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter
@@ -29,7 +42,7 @@ if [ $installLightdm ]; then
 	sudo systemctl enable lightdm
 else
 	echo "Installing only i3 without Lightdm..."
-	echo "This script addons are: rofi, termite, feh, compton and the font-awesome."
+	echo "This script addons are: rofi, termite, feh, compton and font-awesome."
 	sudo pacman -Syu
 	sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome
 	#Enable lightdm with systemd
@@ -43,7 +56,7 @@ echo ""
 echo "i3 was successful installed, now do you want default config on ~/.config/? (yes/no)"
 read selectConfig
 
-if [ $selectConfig ]; then
+if [ $selectConfig == yes]; then
 	echo "Creating ~/.config/ dir..."
 	echo "Creating termite, rofi, compton, i3blocks folders..."
 	mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
