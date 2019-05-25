@@ -13,7 +13,7 @@ echo ""
 echo "Welcome, this is a complete i3 wm installer for ArchLinux! See my github profile: https://github.com/FrancescoXD"
 #Starting
 echo ""
-echo "Do you want also a display manager? In this script will be installed lightdm (yes/no)"
+echo "Do you want also a display manager? In this script lightdm will be installed (yes/no)"
 
 #Select lightdm
 read installLightdm
@@ -47,6 +47,10 @@ if [ $selectConfig ]; then
 	echo "Creating ~/.config/ dir..."
 	echo "Creating termite, rofi, compton, i3blocks folders..."
 	mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
+	#Copy compton config to $HOME/.config/compton
+	cp /etc/xdg/compton.conf ~/.config/compton/
+	#Copy termite config to ~/.config/termite
+	cp /etc/xdg/termite/config ~/.config/termite/config
 else
 	echo "Thanks for using this script."
 fi
