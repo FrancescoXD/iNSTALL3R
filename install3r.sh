@@ -60,7 +60,7 @@ if [ $EUID != 0 ]; then
 	echo "i3 was successful installed, now do you want default config on ~/.config/? (yes/no)"
 	read selectConfig
 
-	if [ $selectConfig == yes]; then
+	if [ $selectConfig == yes ]; then
 		echo "Creating ~/.config/ dir..."
 		echo "Creating termite, rofi, compton, i3blocks folders..."
 		mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
