@@ -77,6 +77,15 @@ if [ $EUID != 0 ]; then
 		#Copy .wallpapers to ~/.config/
 		cp -r .wallpapers ~/.config/
 	fi
+	
+	echo "Last thing, do you need yay? (yes/no)"
+	read selectYay
+	if [ $selectYay == yes ]; then
+		git clone https://aur.archlinux.org/yay.git
+		cd yay
+		makepkg -si
+		cd ..
+	fi
 
 	#Finally
 	echo ""
