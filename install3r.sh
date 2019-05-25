@@ -67,6 +67,8 @@ if [ $EUID != 0 ]; then
 		cp /etc/xdg/compton.conf ~/.config/compton/
 		#Copy termite config to ~/.config/termite
 		cp /etc/xdg/termite/config ~/.config/termite/config
+		#Copy i3blocks config to ~/.config/i3blocks
+		cp /etc/i3blocks.conf ~/.config/i3blocks/
 	else
 		echo "Thanks for using this script."
 	fi
