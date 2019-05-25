@@ -164,3 +164,10 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+
+# Other configuration
+# Start rofi with -show run
+bindsym $mod+d exec rofi -show run
+
+# Set the background using FEH
+exec feh --bg-fill ~/.config/.wallpapers/background.jpg
