@@ -63,15 +63,17 @@ if [ $EUID != 0 ]; then
 	if [ $selectConfig == yes ]; then
 		echo "Creating ~/.config/ dir..."
 		echo "Creating termite, rofi, compton, i3blocks folders..."
-		mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
+		mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks ~/.config/i3status
 		#Copy i3 config to ~/.config/i3
 		cp i3/config ~/.config/i3
-		#Copy compton config to $HOME/.config/compton
+		#Copy compton config to ~/.config/compton
 		cp /etc/xdg/compton.conf ~/.config/compton/
 		#Copy termite config to ~/.config/termite
 		cp /etc/xdg/termite/config ~/.config/termite/config
 		#Copy i3blocks config to ~/.config/i3blocks
 		cp /etc/i3blocks.conf ~/.config/i3blocks/
+		#Copy i3status config to ~/.config/i3status
+		cp /etc/i3status.conf ~/.config/i3status/config
 		#Copy .wallpapers to ~/.config/
 		cp -r .wallpapers ~/.config/
 	fi
