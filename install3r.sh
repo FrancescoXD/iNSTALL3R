@@ -22,51 +22,55 @@ if [ $EUID == 0 ]; then
 		useradd -m -G wheel -s /bin/bash $userToCreate
 		#Modify the visudo
 		sed -i -e 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
+	else
+		echo "If you don't need to create an user, login with a non-root user!"
 	fi
 fi
 
-echo ""
-echo "Do you want also a display manager? In this script lightdm will be installed (yes/no)"
+if [ $EUID != 0 ]; then
+	echo ""
+	echo "Do you want also a display manager? In this script lightdm will be installed (yes/no)"
 
-#Select lightdm
-read installLightdm
+	#Select lightdm
+	read installLightdm
 
-#Start downloading
-if [ $installLightdm == yes ]; then
-	echo "Lightdm selected!"
-	echo "This script addons are: rofi, termite, feh, compton and font-awesome."
-	echo "Start downloading packages..."
-	sudo pacman -Syu
-	sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter
-	#Enable lightdm with systemd
-	sudo systemctl enable lightdm
-else
-	echo "Installing only i3 without Lightdm..."
-	echo "This script addons are: rofi, termite, feh, compton and font-awesome."
-	sudo pacman -Syu
-	sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome
-	#Enable lightdm with systemd
-	sudo systemctl enable lightdm
+	#Start downloading
+	if [ $installLightdm == yes ]; then
+		echo "Lightdm selected!"
+		echo "This script addons are: rofi, termite, feh, compton and font-awesome."
+		echo "Start downloading packages..."
+		sudo pacman -Syu
+		sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter
+		#Enable lightdm with systemd
+		sudo systemctl enable lightdm
+	else
+		echo "Installing only i3 without Lightdm..."
+		echo "This script addons are: rofi, termite, feh, compton and font-awesome."
+		sudo pacman -Syu
+		sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome
+		#Enable lightdm with systemd
+		sudo systemctl enable lightdm
+	fi
+
+	#Config files on ~/.config/
+	echo ""
+	echo "####################"
+	echo ""
+	echo "i3 was successful installed, now do you want default config on ~/.config/? (yes/no)"
+	read selectConfig
+
+	if [ $selectConfig == yes]; then
+		echo "Creating ~/.config/ dir..."
+		echo "Creating termite, rofi, compton, i3blocks folders..."
+		mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
+		#Copy compton config to $HOME/.config/compton
+		cp /etc/xdg/compton.conf ~/.config/compton/
+		#Copy termite config to ~/.config/termite
+		cp /etc/xdg/termite/config ~/.config/termite/config
+	else
+		echo "Thanks for using this script."
+	fi
+
+	#Finally
+	echo "Finally, you have to reboot."
 fi
-
-#Config files on ~/.config/
-echo ""
-echo "####################"
-echo ""
-echo "i3 was successful installed, now do you want default config on ~/.config/? (yes/no)"
-read selectConfig
-
-if [ $selectConfig == yes]; then
-	echo "Creating ~/.config/ dir..."
-	echo "Creating termite, rofi, compton, i3blocks folders..."
-	mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
-	#Copy compton config to $HOME/.config/compton
-	cp /etc/xdg/compton.conf ~/.config/compton/
-	#Copy termite config to ~/.config/termite
-	cp /etc/xdg/termite/config ~/.config/termite/config
-else
-	echo "Thanks for using this script."
-fi
-
-#Finally
-echo "Finally, you have to reboot."
