@@ -15,7 +15,7 @@ echo ""
 if [ $EUID == 0 ]; then
 	echo "You are executing this script with root user, do you need to create an user? (yes/no)"
 	read createUser
-	if [ $createUser ==  yes]; then
+	if [ $createUser ==  yes ]; then
 		echo "Insert the name of the user to create:"
 		read $userToCreate
 		#Create User
