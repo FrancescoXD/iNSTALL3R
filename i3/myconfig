@@ -91,11 +91,11 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:Firefox"
-set $ws2 "2:Terminal"
-set $ws3 "3:Discord"
-set $ws4 "4:Other"
-set $ws5 "5"
+set $ws1 "1: " #Firefox Icon font-awesome
+set $ws2 "2: " #Terminal Icon font-awesome
+set $ws3 "3: " #Code Icon font-awesome
+set $ws4 "4: " #Telegram Icon font-awesome
+set $ws5 "5: " #Spotify Icon font-awesome
 set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
