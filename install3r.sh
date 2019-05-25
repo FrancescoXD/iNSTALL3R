@@ -63,6 +63,8 @@ if [ $EUID != 0 ]; then
 		echo "Creating ~/.config/ dir..."
 		echo "Creating termite, rofi, compton, i3blocks folders..."
 		mkdir ~/.config/ ~/.config/termite ~/.config/compton ~/.config/i3 ~/.config/i3blocks
+		#Copy i3 config to ~/.config/i3
+		cp i3/config ~/.config/i3
 		#Copy compton config to $HOME/.config/compton
 		cp /etc/xdg/compton.conf ~/.config/compton/
 		#Copy termite config to ~/.config/termite
