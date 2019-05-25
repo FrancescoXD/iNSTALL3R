@@ -21,6 +21,7 @@ if [ $EUID == 0 ]; then
 		#Create User
 		useradd -m -G wheel -s /bin/bash $userToCreate
 		echo "Now you need to set the password of the user with: passwd $userToCreate:"
+		echo "After you changed the password, type: logout and change user."
 		#Modify the visudo
 		sed -i -e 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 	else
