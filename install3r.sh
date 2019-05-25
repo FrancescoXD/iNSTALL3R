@@ -17,9 +17,10 @@ if [ $EUID == 0 ]; then
 	read createUser
 	if [ $createUser ==  yes ]; then
 		echo "Insert the name of the user to create:"
-		read $userToCreate
+		read userToCreate
 		#Create User
 		useradd -m -G wheel -s /bin/bash $userToCreate
+		echo "Now you need to set the password of the user with: passwd $userToCreate:"
 		#Modify the visudo
 		sed -i -e 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 	else
