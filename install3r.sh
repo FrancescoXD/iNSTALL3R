@@ -42,14 +42,14 @@ if [ $EUID != 0 ]; then
 		echo "This script addons are: rofi, termite, feh, compton and font-awesome."
 		echo "Start downloading packages..."
 		sudo pacman -Syu
-		sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter vim
+		sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome lightdm lightdm-gtk-greeter
 		#Enable lightdm with systemd
 		sudo systemctl enable lightdm
 	else
 		echo "Installing only i3 without Lightdm..."
 		echo "This script addons are: rofi, termite, feh, compton and font-awesome."
 		sudo pacman -Syu
-		sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome vim
+		sudo pacman -S xorg i3 i3-gaps i3status i3blocks rofi termite feh compton otf-font-awesome ttf-font-awesome
 		#Enable lightdm with systemd
 		sudo systemctl enable lightdm
 	fi
