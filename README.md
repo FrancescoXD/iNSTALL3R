@@ -10,7 +10,7 @@ $ passwd USER
 After you need to modify the ```visudo``` uncommenting ```%wheel```. Now you have to **logout** and enter with the new **user**.
 
 # How to install
-In a fresh install of ArchLinux you need to download **git** with ```pacman -S git```.
+In a fresh install of ArchLinux you need to download **git** with ```sudo pacman -S git```.
 Now **clone** the repo with: 
 ```
 $ git clone https://github.com/FrancescoXD/iNSTALL3R.git
